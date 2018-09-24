@@ -1,0 +1,1642 @@
+{
+	"info": {
+		"_postman_id": "6ac5680f-7d49-43f5-a981-b445d0289158",
+		"name": "OpenWeatherApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "London",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&q=London",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "q",
+							"value": "London"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CityName is null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&q=",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "q",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "London wrong (Londom)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a11a0cb7-edef-4e01-9ae2-840ff8b8e90b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&q=Londom\n",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "q",
+							"value": "Londom\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "London without API Key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a11a0cb7-edef-4e01-9ae2-840ff8b8e90b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?q=London\n",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "London with country code (UK or GB)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&q=London,UK",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "q",
+							"value": "London,UK"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "London with wrong country code (RU)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&q=London,RU",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "q",
+							"value": "London,RU"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "London (UK) with spec characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&q=London#& UK",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "q",
+							"value": "London"
+						}
+					],
+					"hash": "& UK"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Id=1283240 (Kathmandu)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&id=1283240",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "id",
+							"value": "1283240"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Id=1283240 (Kathmandu) with spec characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&id=128324",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "id",
+							"value": "128324"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Id= NULL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&id=",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GeoCoord (New York)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=40.714272&lon=-74.005966",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "40.714272"
+						},
+						{
+							"key": "lon",
+							"value": "-74.005966"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GeoCoord (wrong coord)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=-90.1&lon=-180.1",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "-90.1"
+						},
+						{
+							"key": "lon",
+							"value": "-180.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GeoCoord (only lat)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=-90.0",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "-90.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GeoCoord (only lon)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&lon=180.0",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lon",
+							"value": "180.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GeoCoord (Coord is null)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&lon=,lat=",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lon",
+							"value": ",lat="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZIP code with country code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&zip=03061,UA",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "zip",
+							"value": "03061,UA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZIP code without country code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&zip=03061",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "zip",
+							"value": "03061"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZIP code (wrong) without country code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&zip=11111",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "zip",
+							"value": "11111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZIP code (wrong country code)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&zip=03061, AU",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "zip",
+							"value": "03061, AU"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZIP code (ZIP code is null)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=bffb26f63ba5b291deb6faefa94f3167&zip=",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "zip",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B Box",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/box/city?APPID=bffb26f63ba5b291deb6faefa94f3167&bbox=12,32,15,37,10",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"box",
+						"city"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "bbox",
+							"value": "12,32,15,37,10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B Box (identical coord)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/box/city?APPID=bffb26f63ba5b291deb6faefa94f3167&bbox=12,32,12,32,10",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"box",
+						"city"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "bbox",
+							"value": "12,32,12,32,10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B Box (wrong coord)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/box/city?APPID=bffb26f63ba5b291deb6faefa94f3167&bbox=181,181,45,45,10",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"box",
+						"city"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "bbox",
+							"value": "181,181,45,45,10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B Box (coord is null)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/box/city?APPID=bffb26f63ba5b291deb6faefa94f3167&bbox=",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"box",
+						"city"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "bbox",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cycle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/find?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=55.5&lon=45.5&cnt=10",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"find"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "55.5"
+						},
+						{
+							"key": "lon",
+							"value": "45.5"
+						},
+						{
+							"key": "cnt",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cycle (cnt by default)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/find?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=55.5&lon=45.5",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"find"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "55.5"
+						},
+						{
+							"key": "lon",
+							"value": "45.5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cycle (cnt<1)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/find?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=55.5&lon=45.5&cnt=0",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"find"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "55.5"
+						},
+						{
+							"key": "lon",
+							"value": "45.5"
+						},
+						{
+							"key": "cnt",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cycle (cnt>50)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/find?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=55.5&lon=45.5&cnt=51",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"find"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "55.5"
+						},
+						{
+							"key": "lon",
+							"value": "45.5"
+						},
+						{
+							"key": "cnt",
+							"value": "51"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cycle (wrong coord)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/find?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=90.1&lon=45.5&cnt=10",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"find"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": "90.1"
+						},
+						{
+							"key": "lon",
+							"value": "45.5"
+						},
+						{
+							"key": "cnt",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cycle (coord is null)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/find?APPID=bffb26f63ba5b291deb6faefa94f3167&lat=&lon=&cnt=10",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"find"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "lat",
+							"value": ""
+						},
+						{
+							"key": "lon",
+							"value": ""
+						},
+						{
+							"key": "cnt",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Several city IDs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/group?APPID=bffb26f63ba5b291deb6faefa94f3167&id=2643743,1283240,5128581",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"group"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "id",
+							"value": "2643743,1283240,5128581"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Several city IDs (wrong ID)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/group?APPID=bffb26f63ba5b291deb6faefa94f3167&id=2",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"group"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Several city IDs (id=null)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/group?APPID=bffb26f63ba5b291deb6faefa94f3167&id=",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"group"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Several city IDs (>20)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f52f640a-91f0-4366-9b77-2a9dfe591f15",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/group?APPID=bffb26f63ba5b291deb6faefa94f3167&id=2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"group"
+					],
+					"query": [
+						{
+							"key": "APPID",
+							"value": "bffb26f63ba5b291deb6faefa94f3167"
+						},
+						{
+							"key": "id",
+							"value": "2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581,2643743,1283240,5128581"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
